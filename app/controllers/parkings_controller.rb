@@ -7,7 +7,7 @@ class ParkingsController < ApplicationController
     # Step2: 新建一笔停车，纪录下开始时间
     def create
       @parking = Parking.new( :start_at => Time.now )
-  
+
       # 有登入的话，根据用户选的费率。没有登入的话，指定是 guest 费率
       if current_user
         @parking.parking_type = params[:parking][:parking_type]
@@ -30,7 +30,6 @@ class ParkingsController < ApplicationController
     def update
       @parking = Parking.find(params[:id])
       @parking.end_at = Time.now
-      @parking.calculate_amount
 
       @parking.save!
 
