@@ -2,6 +2,8 @@
 
 <% if @parking.amount.present? # 已经结束，显示停车费 %>
 
+  <p>计费方式 <%= @parking.parking_type %></p>
+
   <p>从 <%= @parking.start_at %> <br>
      至 <%= @parking.end_at %><p>
   <p>共 <%= @parking.duration %> 分钟</p>
